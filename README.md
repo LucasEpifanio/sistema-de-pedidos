@@ -1,4 +1,33 @@
-# Getting Started with Create React App
+# Desenvolvendo APP em React e php
+
+## Sistema de Pedidos com ReactJS & PHP
+
+Utilizamos react para o frontend e php para o backend.
+
+## A aplicação consisite em um sistema de cadastro de pedidos dos devidos clientes. 
+### funcionalidades:
+- Cadastro de clientes
+- Cadastro de pedidos
+- Listagem de pedidos
+- Listagem de clientes
+- Edição de pedidos
+- Edição de clientes
+- Exclusão de pedidos
+- Exclusão de clientes
+- Busca de pedidos por nome do cliente
+- Busca de pedidos por data de entrega
+- Busca de clientes por nome
+- Listagem do Cardápio
+- Cadastro de produtos
+- Edição de produtos
+
+## Bibliotecas usadas
+npm install react-toastify
+npm install xlsx
+npm install file-saver
+
+## Backend & Banco de dados
+Pode usar a sua escolha.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
