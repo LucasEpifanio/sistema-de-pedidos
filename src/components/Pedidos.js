@@ -19,7 +19,7 @@ const Pedidos = ({ pedidos, onEdit, onDelete }) => {
     const fetchPrices = async () => {
       try {
         const response = await fetch(
-          "http://localhost/backend/cardapio.php"
+          "http://localhost/backend-restaurante/cardapio.php"
         );
         const data = await response.json();
         const prices = {};
@@ -64,10 +64,11 @@ const Pedidos = ({ pedidos, onEdit, onDelete }) => {
     const quantidade = parseFloat(qtd || 0);
     const prato = formData.produto.toLowerCase();
     const precoBase = basePrices[prato] || {};
-
+    const cortar = formData.cortar?.toLowerCase();
+  
     let precoTipo = 0;
     let totalPrice = 0;
-
+  
     if (prato === "leitão") {
       // Preços específicos para leitão
       precoTipo = precoBase[tipo.toLowerCase()] || 0;
@@ -76,7 +77,7 @@ const Pedidos = ({ pedidos, onEdit, onDelete }) => {
       // Preços para outros pratos
       const dosePrice = precoBase.dose || 0;
       const meiaDosePrice = precoBase.meia_dose || 0;
-
+  
       if (quantidade % 1 === 0) {
         // Quantidades inteiras
         totalPrice = (dosePrice * quantidade).toFixed(2);
@@ -84,7 +85,7 @@ const Pedidos = ({ pedidos, onEdit, onDelete }) => {
         // Quantidades fracionárias
         const fullUnits = Math.floor(quantidade);
         const fractionalPart = quantidade - fullUnits;
-
+  
         if (fractionalPart === 0.5) {
           totalPrice = (fullUnits * dosePrice + meiaDosePrice).toFixed(2);
         } else if (fractionalPart === 0.25) {
@@ -100,7 +101,12 @@ const Pedidos = ({ pedidos, onEdit, onDelete }) => {
         }
       }
     }
-
+  
+    // Verifica se o campo cortar está definido como "sim" e adiciona 5 ao preço
+    if (cortar === "sim") {
+      totalPrice = (parseFloat(totalPrice) + 5).toFixed(2);
+    }
+  
     setFormData((prevData) => ({ ...prevData, preco: totalPrice }));
   };
 
@@ -307,7 +313,7 @@ const handleFileUpload = () => {
       const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
       // Enviar dados para o servidor PHP
-      const response = await fetch('http://localhost/backend/save-pedidos.php', {
+      const response = await fetch('http://localhost/backend-restaurante/save-pedidos.php', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
