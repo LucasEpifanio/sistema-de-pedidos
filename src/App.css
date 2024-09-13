@@ -1,38 +1,314 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
 .App {
+  font-family: Arial, sans-serif;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #dfe0e4;
+  color:#404042;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
+}
+
+/* Inicio Navbar*/
+
+.navbar {
+  display: flex;
+  justify-content:space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 30px;
+}
+
+.navbar .profile-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+}
+
+.logo{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #252629;
+}
+
+/* Final Navbar*/
+
+
+/*Inicio Main*/
+.menu{
+  width: 90%;
+    height: 100px;
+    margin: 0px auto 0px auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.menu-button button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: 0.25s all;
+}
+.menu-button button:hover {
+  background-color: #6950db;
+  color: white;
+}
+.menu-button button:active{
+  background-color: #6950db;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.popup-inner {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  color: black;
+  max-width: 450px;
+  width: 380px;
+  margin: auto;
+  z-index: 12;
+}
+
+.register-form,
+.order-details-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+.form-group textarea{
+  max-height: 125px;
+  max-height: 90px;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-actions button {
+  padding: 8px 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.form-actions button[type="cancel"] {
+  background-color: #dc3545;
+}
+
+.form-actions button[type="add"] {
+  background-color: #007bff;
+}
+
+.form-actions button[type="submit"] {
+  background-color: #6950db;
+}
+
+/*Final Main*/
+
+
+option{
+   padding: 10px;
+   font-size: 16px;
+}
+
+option:hover{
+  background: #6950db;
+}
+
+
+/*Inicio Tabs*/
+.tabs-main{
+  width: 90%;
+  height:100px ;
+  margin: 0px auto;
+}
+
+.tabs {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tabs button {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 25px;
+  margin-right: 3px;
+  cursor: pointer;
+  border-radius: 1px;
+  border: white;
+  background: white;
+}
+
+.tabs button.active {
+  background-color: #6950db;
+  border: #6950db;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+th{
+  text-align: left;
+  padding: 10px;
+  border: solid 1px #6950db;
+}
+ td {
+  border: 1px solid #b1b1b1;
+  padding: 8px;
+  text-align: left;
+}
+
+thead{
+  background-color: #6950db;
+  color:white;
+  position: sticky;
+  top: -1px;
+  z-index: 10;
+}
+
+tfoot tr{
+  background-color:#95e092;
+}
+
+.table-footer td {
+  padding: 8px;
+  border: 1px solid #95e092;
+}
+
+.table-footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.footer {
+  padding: 10px;
+  background-color: #aba8af;
+  text-align: right;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer button {
+  padding: 10px 20px;
+  background-color: #6950db;
+  border: none;
+  color:white;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+.footer button:hover {
+  background-color: #462f6e;
+}
+
+/*Final Tabs*/
+
+
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.input-sm {
+  width: 75%;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+
+
+.cardapio .table-container {
+  max-height: 575px; 
+  overflow-y: auto; 
+  overflow-x: auto; 
+}
+
+.pedidos .table-container {
+  max-height: 575px; 
+  overflow-y: auto; 
+  overflow-x: auto; 
+}
+.contador .table-container {
+  max-height: 575px; 
+  overflow-y: auto; 
+  overflow-x: auto; 
+}
+
+
+.filter{
+  padding: 8px 12px;
+  border: 1.5px solid #6950db00;
+}
+
+/* Estilo de foco e hover do <select> */
+.filter:focus {
+  border-color: #6950db; 
+  outline: none;
+  border: 1.5px solid #6950db;
+}
+
+@media only screen and (min-width: 2000px) {
+  .cardapio .table-container, .pedidos .table-container, .contador .table-container {
+    max-height: 665px; 
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+
+
+
+/* Adicione esta classe CSS para campos apenas leitura */
+.readonly-field {
+  cursor: not-allowed; /* Cursor de proibição */
 }
