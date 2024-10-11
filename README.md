@@ -20,6 +20,9 @@ Utilizamos react para o frontend e php para o backend.
 - Listagem do Cardápio
 - Cadastro de produtos
 - Edição de produtos
+- Exportação de tabela
+- Importação em Excel
+- Impressão de tabela
 
 ## Bibliotecas usadas
 npm install react-toastify
