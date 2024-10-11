@@ -2,7 +2,7 @@
 
 ## Sistema de Pedidos com ReactJS & PHP
 
-Utilizamos react para o frontend e php para o backend.
+Utilizamos reactJS para o frontend e php para o backend.
 
 ## A aplicação consisite em um sistema de cadastro de pedidos dos devidos clientes. 
 ### funcionalidades:
